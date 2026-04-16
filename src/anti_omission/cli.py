@@ -16,6 +16,7 @@ from anti_omission.labeling import (
 )
 from anti_omission.manifest import initialize_run_dir
 from anti_omission.preflight import inspect_run_dir
+from anti_omission.repo_visuals import write_repo_visuals
 from anti_omission.reporting import draft_full_manuscript, draft_manuscript_section, draft_paper_results
 from anti_omission.runner import execute_run
 from anti_omission.scenario_qc import inspect_scenario_bank, write_scenario_qc_report
@@ -178,6 +179,13 @@ def build_parser() -> argparse.ArgumentParser:
     )
     evidence_index_parser.add_argument("--run-dir", required=True)
     evidence_index_parser.add_argument("--output-path")
+
+    repo_visuals_parser = subparsers.add_parser(
+        "generate-repo-assets",
+        help="Generate GitHub-friendly visual assets from a locked run",
+    )
+    repo_visuals_parser.add_argument("--run-dir", required=True)
+    repo_visuals_parser.add_argument("--output-dir", required=True)
 
     smoke_parser = subparsers.add_parser("smoke-test", help="Run the bundled mock smoke test")
     smoke_parser.add_argument(
@@ -374,6 +382,17 @@ def main(argv: Optional[list[str]] = None) -> int:
             args.run_dir,
             output_path=args.output_path,
         )
+        print(
+            json.dumps(
+                {key: str(value) for key, value in outputs.items()},
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 0
+
+    if args.command == "generate-repo-assets":
+        outputs = write_repo_visuals(args.run_dir, args.output_dir)
         print(
             json.dumps(
                 {key: str(value) for key, value in outputs.items()},
