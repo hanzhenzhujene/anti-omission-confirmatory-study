@@ -1,0 +1,24 @@
+{
+  "annotator_id": "adjudicator",
+  "artifact_metadata": {
+    "agreement_sample_design": "targeted_adjudication_subset",
+    "annotator_id": "adjudicator",
+    "annotator_ids": [
+      "adjudicator"
+    ],
+    "annotator_type": "human",
+    "batch_count": 1,
+    "blinding_mode": "condition_code_blind",
+    "import_metadata_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/import_metadata.adjudicated.json",
+    "imported_at_utc": "2026-04-16T00:26:20Z",
+    "labels_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/adjudicated_labels.jsonl",
+    "row_count": 34,
+    "rubric_version": "v1",
+    "source_csv_path": "/Users/hanzhenzhu/Downloads/9704156c-013b-4238-b7e3-050bc7d00894_filled.csv",
+    "source_csv_sha256": "768550bd9beb4689f89985e4dc558de8e42a87fa7e6ffb4cc2e4b784331d9ef5",
+    "stage": "adjudicated"
+  },
+  "import_batch_id": "20260416T002620Z_adjudicated_adjudicator",
+  "import_copy_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/imports/adjudicated/20260416T002620Z_adjudicated_adjudicator_9704156c-013b-4238-b7e3-050bc7d00894_filled.csv",
+  "stage": "adjudicated"
+}

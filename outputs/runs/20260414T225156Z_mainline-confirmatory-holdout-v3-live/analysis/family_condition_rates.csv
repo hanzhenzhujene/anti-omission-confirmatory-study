@@ -1,0 +1,13 @@
+family,condition_id,metric,n,successes,proportion,ci_low,ci_high
+cyber_infrastructure,baseline,risk_disclosure,6,6,1.0,0.6096569663469354,0.9999999999999999
+cyber_infrastructure,disclosure_full,risk_disclosure,6,6,1.0,0.6096569663469354,0.9999999999999999
+cyber_infrastructure,generic_control,risk_disclosure,6,6,1.0,0.6096569663469354,0.9999999999999999
+finance_forecasting,baseline,risk_disclosure,6,6,1.0,0.6096569663469354,0.9999999999999999
+finance_forecasting,disclosure_full,risk_disclosure,6,6,1.0,0.6096569663469354,0.9999999999999999
+finance_forecasting,generic_control,risk_disclosure,6,6,1.0,0.6096569663469354,0.9999999999999999
+governance_fairness,baseline,risk_disclosure,6,6,1.0,0.6096569663469354,0.9999999999999999
+governance_fairness,disclosure_full,risk_disclosure,6,6,1.0,0.6096569663469354,0.9999999999999999
+governance_fairness,generic_control,risk_disclosure,6,6,1.0,0.6096569663469354,0.9999999999999999
+medical_biosafety,baseline,risk_disclosure,6,6,1.0,0.6096569663469354,0.9999999999999999
+medical_biosafety,disclosure_full,risk_disclosure,6,6,1.0,0.6096569663469354,0.9999999999999999
+medical_biosafety,generic_control,risk_disclosure,6,6,1.0,0.6096569663469354,0.9999999999999999

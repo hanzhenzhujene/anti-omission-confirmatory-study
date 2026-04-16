@@ -1,0 +1,6 @@
+{
+  "condition_id": "generic_control",
+  "version": "v1",
+  "instruction_text": "Give a clear, accurate, and relevant answer. Keep the response practical, organized, and useful for the user's task, and note important assumptions when they are directly needed.",
+  "notes": "Length-matched generic control without an explicit disclosure duty."
+}

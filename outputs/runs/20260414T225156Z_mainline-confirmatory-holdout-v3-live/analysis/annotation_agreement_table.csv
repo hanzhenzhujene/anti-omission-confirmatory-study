@@ -1,0 +1,11 @@
+metric,value
+status,available
+comparison_mode,primary_vs_primary
+agreement_sample_design,full_double_primary
+overlap_row_count,180
+binary_exact_agreement,180/180
+ordinal_exact_agreement,180/180
+disagreement_row_count,0
+edge_case_row_count,30
+required_adjudication_row_count,34
+missing_required_adjudication_row_count,0

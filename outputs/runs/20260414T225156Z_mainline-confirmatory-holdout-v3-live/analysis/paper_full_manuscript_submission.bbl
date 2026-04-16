@@ -1,0 +1,98 @@
+\begin{thebibliography}{11}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bai et~al.(2022)Bai, Jones, Ndousse, Askell, Chen, DasSarma, Drain,
+  Ganguli, Henighan, Joseph, Mann, Miller, Olsson, Perez, Schiefer, Bowman,
+  Elhage, Tran-Johnson, Perez, Kaplan, McCandlish,
+  et~al.]{bai2022constitutional}
+Yuntao Bai, Andy Jones, Kamal Ndousse, Amanda Askell, Anna Chen, Nova DasSarma,
+  Dawn Drain, Deep Ganguli, Tom Henighan, Nicholas Joseph, Ben Mann, Benjamin
+  Miller, Catherine Olsson, Ethan Perez, Nicholas Schiefer, Samuel~R. Bowman,
+  Nelson Elhage, Evan Tran-Johnson, Esin Perez, Jared Kaplan, Sam McCandlish,
+  et~al.
+\newblock Constitutional ai: Harmlessness from ai feedback.
+\newblock \emph{arXiv}, 2022.
+
+\bibitem[Chern et~al.(2024)Chern, Chen, He, Xu, Li, Zhang, and
+  Liu]{chern2024behonest}
+Ethan Chern, Qihan Chen, Yiren He, Zhenhailong Xu, Pengfei Li, Xinyun Zhang,
+  and Pengfei Liu.
+\newblock Behonest: Benchmarking honesty in large language models.
+\newblock \emph{arXiv}, 2024.
+
+\bibitem[Ganguli et~al.(2022)Ganguli, Lovitt, Kernion, Askell, Bai, Kadavath,
+  Mann, Perez, Schiefer, Ndousse, et~al.]{ganguli2022red}
+Deep Ganguli, Liane Lovitt, Jackson Kernion, Amanda Askell, Yuntao Bai, Saurav
+  Kadavath, Ben Mann, Ethan Perez, Nicholas Schiefer, Kamal Ndousse, et~al.
+\newblock Red teaming language models to reduce harms: Methods, scaling
+  behaviors, and lessons learned.
+\newblock \emph{arXiv}, 2022.
+
+\bibitem[Liang et~al.(2022)Liang, Bommasani, Lee, Tsipras, Soylu, Yasunaga,
+  Zhang, Narayanan, Wu, Kumar, et~al.]{liang2022helm}
+Percy Liang, Rishi Bommasani, Tony Lee, Dimitris Tsipras, Dilara Soylu,
+  Michihiro Yasunaga, Yian Zhang, Deepak Narayanan, Yuhuai Wu, Ananya Kumar,
+  et~al.
+\newblock Holistic evaluation of language models.
+\newblock \emph{arXiv}, 2022.
+
+\bibitem[Lin et~al.(2021)Lin, Hilton, and Evans]{lin2021truthfulqa}
+Stephanie Lin, Jacob Hilton, and Owain Evans.
+\newblock Truthfulqa: Measuring how models mimic human falsehoods.
+\newblock \emph{arXiv}, 2021.
+
+\bibitem[Ouyang et~al.(2022)Ouyang, Wu, Jiang, Almeida, Wainwright, Mishkin,
+  Zhang, Agarwal, Slama, Ray, Schulman, Hilton, Kelton, Miller, Simens, Askell,
+  Welinder, Christiano, Leike, and Lowe]{ouyang2022instructgpt}
+Long Ouyang, Jeffrey Wu, Xu~Jiang, Diogo Almeida, Carroll Wainwright, Pamela
+  Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, John
+  Schulman, Jacob Hilton, Fraser Kelton, Luke Miller, Maddie Simens, Amanda
+  Askell, Peter Welinder, Paul Christiano, Jan Leike, and Ryan Lowe.
+\newblock Training language models to follow instructions with human feedback.
+\newblock \emph{arXiv}, 2022.
+
+\bibitem[Perez et~al.(2022)Perez, Ringer, Luko{\v{s}}i{\=u}t{\.e}, Nguyen,
+  Chen, Heiner, Pettit, Olsson, Kundu, Kadavath, et~al.]{perez2022red}
+Ethan Perez, Sam Ringer, Karina Luko{\v{s}}i{\=u}t{\.e}, Karina Nguyen, Edwin
+  Chen, Scott Heiner, Catherine Pettit, Catherine Olsson, Saurav Kundu, Saurav
+  Kadavath, et~al.
+\newblock Red teaming language models with language models.
+\newblock \emph{arXiv}, 2022.
+
+\bibitem[Phuong et~al.(2024)Phuong, Aitchison, Catt, Cogan, Koyejo, Michel,
+  Thompson, et~al.]{phuong2024evaluating}
+Mary Phuong, Matthew Aitchison, Eliot Catt, Spencer Cogan, Sanmi Koyejo, Paul
+  Michel, Neil Thompson, et~al.
+\newblock Evaluating frontier models for dangerous capabilities.
+\newblock \emph{arXiv}, 2024.
+
+\bibitem[Reynolds and McDonell(2021)]{reynolds2021prompt}
+Laria Reynolds and Kyle McDonell.
+\newblock Prompt programming for large language models: Beyond the few-shot
+  paradigm.
+\newblock \emph{arXiv}, 2021.
+
+\bibitem[Weidinger et~al.(2021)Weidinger, Mellor, Rauh, Griffin, Uesato, Huang,
+  Cheng, Glaese, Balle, Kasirzadeh, Kenton, Brown, Hawkins, Stepleton, Birhane,
+  Huang, Cheng, Summerfield, Ethics, and Team]{weidinger2021risks}
+Laura Weidinger, John Mellor, Maribeth Rauh, Conor Griffin, Jonathan Uesato,
+  Po-Sen Huang, Myra Cheng, Amelia Glaese, Borja Balle, Atoosa Kasirzadeh,
+  Zachary Kenton, Sarah Brown, Will Hawkins, Tom Stepleton, Abeba Birhane,
+  Saffron Huang, Tom Cheng, Christopher Summerfield, DeepMind Ethics, and
+  Society Team.
+\newblock Ethical and social risks of harm from language models.
+\newblock \emph{arXiv}, 2021.
+
+\bibitem[Yang et~al.(2023)Yang, Zhang, Xiong, Zhang, Narasimhan, Bansal, Yao,
+  et~al.]{yang2023rethinking}
+Rui Yang, Tianyi Zhang, Caiming Xiong, Tong Zhang, Karthik Narasimhan, Mohit
+  Bansal, Shunyu Yao, et~al.
+\newblock Rethinking benchmark and contamination for language models with
+  rephrased samples.
+\newblock \emph{arXiv}, 2023.
+
+\end{thebibliography}

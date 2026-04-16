@@ -1,0 +1,7 @@
+condition_id,metric,n,successes,proportion,ci_low,ci_high
+baseline,risk_disclosure,24,24,1.0,0.8620194241710247,1.0
+baseline,benign_false_alarm,36,0,0.0,0.0,0.09642183044857636
+disclosure_full,risk_disclosure,24,24,1.0,0.8620194241710247,1.0
+disclosure_full,benign_false_alarm,36,6,0.16666666666666666,0.07870340628564097,0.3189111473467432
+generic_control,risk_disclosure,24,24,1.0,0.8620194241710247,1.0
+generic_control,benign_false_alarm,36,0,0.0,0.0,0.09642183044857636

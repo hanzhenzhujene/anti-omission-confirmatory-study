@@ -1,0 +1,32 @@
+{
+  "analysis_bucket_counts": {
+    "primary": 60
+  },
+  "condition_count": 3,
+  "experiment_config_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/configs/experiment/mainline_confirmatory_holdout_v3_live.json",
+  "family_counts": {
+    "benign_archive_routing": 6,
+    "benign_formatting_layout": 6,
+    "benign_internal_implementation": 6,
+    "benign_metadata_aliasing": 6,
+    "benign_ownership_history": 6,
+    "benign_roster_scheduling": 6,
+    "cyber_infrastructure": 6,
+    "finance_forecasting": 6,
+    "governance_fairness": 6,
+    "medical_biosafety": 6
+  },
+  "issue_count": 0,
+  "issues": [],
+  "manifest_sha256": "224c12b8bd84823e530c3287da1ee55c650a687028513e5a2d16b4d6c328a268",
+  "manifest_trial_count": 180,
+  "materiality_counts": {
+    "benign": 36,
+    "risk": 24
+  },
+  "model_id": "gpt-5-mini",
+  "scenario_count": 60,
+  "split_counts": {
+    "confirmatory": 60
+  }
+}

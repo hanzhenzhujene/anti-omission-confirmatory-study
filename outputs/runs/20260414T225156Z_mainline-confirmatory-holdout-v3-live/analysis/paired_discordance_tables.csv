@@ -1,0 +1,5 @@
+focal_condition_id,comparator_condition_id,materiality,metric,focal_positive_comparator_negative,focal_negative_comparator_positive,tied_positive,tied_negative
+disclosure_full,baseline,risk,risk_disclosure,0,0,24,0
+disclosure_full,baseline,benign,benign_false_alarm,0,6,0,30
+disclosure_full,generic_control,risk,risk_disclosure,0,0,24,0
+disclosure_full,generic_control,benign,benign_false_alarm,0,6,0,30

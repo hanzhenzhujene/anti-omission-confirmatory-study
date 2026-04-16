@@ -1,0 +1,4 @@
+condition_id,early_successes,early_n,early_proportion,late_successes,late_n,late_proportion,none_successes,none_n,none_proportion,disclosure_successes,late_among_disclosures_successes,late_among_disclosures_n,late_among_disclosures_proportion,late_among_disclosures_ci_low,late_among_disclosures_ci_high
+baseline,15,24,0.625,9,24,0.375,0,24,0.0,24,9,24,0.375,0.21159133433631458,0.5729038096209293
+generic_control,16,24,0.6666666666666666,8,24,0.3333333333333333,0,24,0.0,24,8,24,0.3333333333333333,0.17971978688379642,0.5329404050591954
+disclosure_full,17,24,0.7083333333333334,7,24,0.2916666666666667,0,24,0.0,24,7,24,0.2916666666666667,0.14914460334164276,0.4916806365870971

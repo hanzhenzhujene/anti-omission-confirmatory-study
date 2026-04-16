@@ -1,0 +1,15 @@
+{
+  "adjudicated_row_count": 34,
+  "covered_required_adjudication_row_count": 34,
+  "final_row_count": 180,
+  "final_stage": "adjudicated_consensus_final",
+  "missing_required_adjudication_row_count": 0,
+  "missing_required_adjudication_trial_ids": [],
+  "primary_annotator_ids": [
+    "primary_a",
+    "primary_b"
+  ],
+  "required_adjudication_row_count": 34,
+  "status": "finalized",
+  "strict": true
+}

@@ -1,0 +1,5 @@
+focal_condition_id,comparator_condition_id,materiality,metric,comparable_scenarios,focal_better,tied,focal_worse,tied_positive,tied_negative,discordant_pairs,discordant_fraction,net_paired_change_percentage_points,exact_binomial_two_sided_p,exact_binomial_one_sided_focal_better_p
+disclosure_full,baseline,risk,risk_disclosure,24,0,24,0,24,0,0,0.0,0.0,,
+disclosure_full,baseline,benign,benign_false_alarm,36,0,30,6,0,30,6,0.16666666666666666,-16.666666666666664,0.03125,1.0
+disclosure_full,generic_control,risk,risk_disclosure,24,0,24,0,24,0,0,0.0,0.0,,
+disclosure_full,generic_control,benign,benign_false_alarm,36,0,30,6,0,30,6,0.16666666666666666,-16.666666666666664,0.03125,1.0

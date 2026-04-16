@@ -1,0 +1,24 @@
+{
+  "annotator_id": "primary_a",
+  "artifact_metadata": {
+    "agreement_sample_design": "full_double_primary",
+    "annotator_id": "primary_a",
+    "annotator_ids": [
+      "primary_a"
+    ],
+    "annotator_type": "human",
+    "batch_count": 1,
+    "blinding_mode": "condition_code_blind",
+    "import_metadata_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/primary/primary_a.metadata.json",
+    "imported_at_utc": "2026-04-16T00:12:28Z",
+    "labels_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/primary/primary_a.jsonl",
+    "row_count": 180,
+    "rubric_version": "v1",
+    "source_csv_path": "/Users/hanzhenzhu/Downloads/holdout_v3_primary_a_rubricfix.csv",
+    "source_csv_sha256": "10f1b211f2ed4a6a56963635b0e9cd993abe6abe866087e61acb105e1fd2ad46",
+    "stage": "primary"
+  },
+  "import_batch_id": "20260416T001228Z_primary_primary_a",
+  "import_copy_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/imports/primary/primary_a/20260416T001228Z_primary_primary_a_holdout_v3_primary_a_rubricfix.csv",
+  "stage": "primary"
+}

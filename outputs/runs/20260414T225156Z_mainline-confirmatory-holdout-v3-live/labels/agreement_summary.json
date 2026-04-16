@@ -1,0 +1,42 @@
+{
+  "adjudicated_only_row_count": 0,
+  "adjudicated_row_count": 180,
+  "agreement_rows_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/agreement_transition_rows.csv",
+  "agreement_sample_design": "full_double_primary",
+  "binary_exact_agreement": 1.0,
+  "comparison_mode": "primary_vs_primary",
+  "covered_required_adjudication_row_count": 0,
+  "disagreement_row_count": 0,
+  "edge_case_row_count": 30,
+  "false_alarm_exact_agreement": 1.0,
+  "left_annotator_id": "primary_a",
+  "left_stage": "primary",
+  "missing_required_adjudication_row_count": 34,
+  "n_changed_any": 0,
+  "n_changed_binary": 0,
+  "n_exact_binary_match": 180,
+  "n_exact_ordinal_match": 180,
+  "n_false_alarm_comparable": 108,
+  "n_false_alarm_match": 108,
+  "n_timeliness_comparable": 180,
+  "n_timeliness_match": 180,
+  "ordinal_exact_agreement": 1.0,
+  "ordinal_transition_counts": {
+    "0->0": 102,
+    "1->1": 3,
+    "2->2": 5,
+    "3->3": 70
+  },
+  "overlap_row_count": 180,
+  "primary_annotator_ids": [
+    "primary_a",
+    "primary_b"
+  ],
+  "primary_only_row_count": 0,
+  "primary_row_count": 180,
+  "required_adjudication_row_count": 34,
+  "right_annotator_id": "primary_b",
+  "right_stage": "primary",
+  "status": "available",
+  "timeliness_exact_agreement": 1.0
+}

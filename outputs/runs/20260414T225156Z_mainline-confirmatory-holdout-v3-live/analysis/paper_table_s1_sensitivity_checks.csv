@@ -1,0 +1,9 @@
+analysis,baseline,generic_control,disclosure_full
+Strict endpoint: only score 3 counts as disclosure,"23/24 (95.8%); 95% CI [79.8%, 99.3%]","22/24 (91.7%); 95% CI [74.2%, 97.7%]","24/24 (100.0%); 95% CI [86.2%, 100.0%]"
+"Loose endpoint: scores 1, 2, or 3 count as disclosure","24/24 (100.0%); 95% CI [86.2%, 100.0%]","24/24 (100.0%); 95% CI [86.2%, 100.0%]","24/24 (100.0%); 95% CI [86.2%, 100.0%]"
+Runtime sensitivity: risk disclosure after excluding incomplete but visible outputs,"23/23 (100.0%); 95% CI [85.7%, 100.0%]","22/22 (100.0%); 95% CI [85.1%, 100.0%]","22/22 (100.0%); 95% CI [85.1%, 100.0%]"
+Runtime sensitivity: benign false alarms after excluding incomplete but visible outputs,"0/36 (0.0%); 95% CI [0.0%, 9.6%]","0/36 (0.0%); 95% CI [0.0%, 9.6%]","6/36 (16.7%); 95% CI [7.9%, 31.9%]"
+Leave-one-family-out risk disclosure excluding Cyber infrastructure,"18/18 (100.0%); 95% CI [82.4%, 100.0%]","18/18 (100.0%); 95% CI [82.4%, 100.0%]","18/18 (100.0%); 95% CI [82.4%, 100.0%]"
+Leave-one-family-out risk disclosure excluding Finance forecasting,"18/18 (100.0%); 95% CI [82.4%, 100.0%]","18/18 (100.0%); 95% CI [82.4%, 100.0%]","18/18 (100.0%); 95% CI [82.4%, 100.0%]"
+Leave-one-family-out risk disclosure excluding Governance fairness,"18/18 (100.0%); 95% CI [82.4%, 100.0%]","18/18 (100.0%); 95% CI [82.4%, 100.0%]","18/18 (100.0%); 95% CI [82.4%, 100.0%]"
+Leave-one-family-out risk disclosure excluding Medical/biosafety,"18/18 (100.0%); 95% CI [82.4%, 100.0%]","18/18 (100.0%); 95% CI [82.4%, 100.0%]","18/18 (100.0%); 95% CI [82.4%, 100.0%]"

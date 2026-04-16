@@ -1,0 +1,105 @@
+{
+  "adjudicated": {
+    "agreement_sample_design": "targeted_adjudication_subset",
+    "annotator_id": "adjudicator",
+    "annotator_ids": [
+      "adjudicator"
+    ],
+    "annotator_type": "human",
+    "batch_count": 1,
+    "blinding_mode": "condition_code_blind",
+    "import_metadata_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/import_metadata.adjudicated.json",
+    "imported_at_utc": "2026-04-16T00:26:20Z",
+    "labels_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/adjudicated_labels.jsonl",
+    "row_count": 34,
+    "rubric_version": "v1",
+    "source_csv_path": "/Users/hanzhenzhu/Downloads/9704156c-013b-4238-b7e3-050bc7d00894_filled.csv",
+    "source_csv_sha256": "768550bd9beb4689f89985e4dc558de8e42a87fa7e6ffb4cc2e4b784331d9ef5",
+    "stage": "adjudicated"
+  },
+  "adjudication_export_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/adjudication_export.csv",
+  "adjudication_required_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/adjudication_required.csv",
+  "agreement_transition_rows_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/agreement_transition_rows.csv",
+  "final": {
+    "agreement_sample_design": "full_double_primary",
+    "annotator_id": "",
+    "annotator_ids": [
+      "primary_a",
+      "primary_b"
+    ],
+    "annotator_type": "unknown",
+    "batch_count": 1,
+    "blinding_mode": "unknown",
+    "import_metadata_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/import_metadata.json",
+    "imported_at_utc": "2026-04-16T00:26:27Z",
+    "labels_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/final_labels.jsonl",
+    "row_count": 180,
+    "rubric_version": "unspecified",
+    "source_csv_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/adjudication_required.csv",
+    "source_csv_sha256": "",
+    "stage": "final"
+  },
+  "final_stage": "adjudicated_consensus_final",
+  "finalization_report_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/finalization_report.json",
+  "primary": {
+    "agreement_sample_design": "full_double_primary",
+    "annotator_id": "primary_b",
+    "annotator_ids": [
+      "primary_a",
+      "primary_b"
+    ],
+    "annotator_type": "human",
+    "batch_count": 2,
+    "blinding_mode": "condition_code_blind",
+    "import_metadata_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/import_metadata.primary.json",
+    "imported_at_utc": "2026-04-16T00:12:38Z",
+    "labels_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/primary_labels.jsonl",
+    "row_count": 360,
+    "rubric_version": "v1",
+    "source_csv_path": "/Users/hanzhenzhu/Downloads/holdout_v3_primary_b_rubricfix.csv",
+    "source_csv_sha256": "10f1b211f2ed4a6a56963635b0e9cd993abe6abe866087e61acb105e1fd2ad46",
+    "stage": "primary"
+  },
+  "primary_annotator_ids": [
+    "primary_a",
+    "primary_b"
+  ],
+  "primary_by_annotator": {
+    "primary_a": {
+      "agreement_sample_design": "full_double_primary",
+      "annotator_id": "primary_a",
+      "annotator_ids": [
+        "primary_a"
+      ],
+      "annotator_type": "human",
+      "batch_count": 1,
+      "blinding_mode": "condition_code_blind",
+      "import_metadata_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/primary/primary_a.metadata.json",
+      "imported_at_utc": "2026-04-16T00:12:28Z",
+      "labels_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/primary/primary_a.jsonl",
+      "row_count": 180,
+      "rubric_version": "v1",
+      "source_csv_path": "/Users/hanzhenzhu/Downloads/holdout_v3_primary_a_rubricfix.csv",
+      "source_csv_sha256": "10f1b211f2ed4a6a56963635b0e9cd993abe6abe866087e61acb105e1fd2ad46",
+      "stage": "primary"
+    },
+    "primary_b": {
+      "agreement_sample_design": "full_double_primary",
+      "annotator_id": "primary_b",
+      "annotator_ids": [
+        "primary_b"
+      ],
+      "annotator_type": "human",
+      "batch_count": 1,
+      "blinding_mode": "condition_code_blind",
+      "import_metadata_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/primary/primary_b.metadata.json",
+      "imported_at_utc": "2026-04-16T00:12:38Z",
+      "labels_path": "/Users/hanzhenzhu/Desktop/anti_omission_scaffold/outputs/runs/20260414T225156Z_mainline-confirmatory-holdout-v3-live/labels/primary/primary_b.jsonl",
+      "row_count": 180,
+      "rubric_version": "v1",
+      "source_csv_path": "/Users/hanzhenzhu/Downloads/holdout_v3_primary_b_rubricfix.csv",
+      "source_csv_sha256": "10f1b211f2ed4a6a56963635b0e9cd993abe6abe866087e61acb105e1fd2ad46",
+      "stage": "primary"
+    }
+  }
+}

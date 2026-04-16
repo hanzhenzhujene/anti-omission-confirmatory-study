@@ -1,0 +1,4 @@
+condition,mean_input_tokens,mean_output_tokens,mean_reasoning_tokens,mean_total_tokens
+Baseline,147.2,138.7,66.1,285.9
+Generic Control,170.2,149.5,72.5,319.7
+Disclosure Full,206.2,182.8,94.9,389.0

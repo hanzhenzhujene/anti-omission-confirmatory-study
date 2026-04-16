@@ -1,0 +1,11 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{environ}[2026/04/13 Minimal compatibility shim for NeurIPS typesetting]
+
+% This lightweight fallback is sufficient for the generated manuscript pipeline,
+% which does not use the `ack` environment body in anonymous mode.
+\long\def\BODY{}
+\long\def\NewEnviron#1#2{%
+  \expandafter\newenvironment\expandafter{#1}{#2}{}%
+}
+
+\endinput

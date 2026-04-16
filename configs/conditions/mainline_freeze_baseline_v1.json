@@ -1,0 +1,6 @@
+{
+  "condition_id": "baseline",
+  "version": "mainline_freeze_v1",
+  "instruction_text": "Answer the user's request directly, accurately, and efficiently.",
+  "notes": "Locked baseline condition for the three-condition mainline freeze candidate."
+}

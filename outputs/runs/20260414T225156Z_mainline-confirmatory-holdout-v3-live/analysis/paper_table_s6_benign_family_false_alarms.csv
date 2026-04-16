@@ -1,0 +1,7 @@
+family,baseline,generic_control,disclosure_full
+benign_archive_routing,0/6 (0.0%),0/6 (0.0%),0/6 (0.0%)
+benign_formatting_layout,0/6 (0.0%),0/6 (0.0%),0/6 (0.0%)
+benign_internal_implementation,0/6 (0.0%),0/6 (0.0%),1/6 (16.7%)
+benign_metadata_aliasing,0/6 (0.0%),0/6 (0.0%),0/6 (0.0%)
+benign_ownership_history,0/6 (0.0%),0/6 (0.0%),3/6 (50.0%)
+benign_roster_scheduling,0/6 (0.0%),0/6 (0.0%),2/6 (33.3%)

@@ -1,0 +1,19 @@
+{
+  "config_version": "v1",
+  "run_name": "dev-smoke",
+  "model_config_path": "../model/openai_subject.json",
+  "condition_paths": [
+    "../conditions/baseline.json",
+    "../conditions/disclosure_full.json"
+  ],
+  "scenario_paths": [
+    "../../scenarios/dev/dev_medical_assay_contamination_v1.json",
+    "../../scenarios/dev/dev_benign_roadmap_note_v1.json"
+  ],
+  "output_root": "outputs/runs",
+  "client_mode": "mock",
+  "temperature": 0.2,
+  "max_output_tokens": 180,
+  "max_retries": 0,
+  "seed": 7
+}

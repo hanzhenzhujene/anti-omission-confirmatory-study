@@ -1,0 +1,11 @@
+family,materiality,unique_scenarios,trial_rows
+benign_archive_routing,benign,6,18
+benign_formatting_layout,benign,6,18
+benign_internal_implementation,benign,6,18
+benign_metadata_aliasing,benign,6,18
+benign_ownership_history,benign,6,18
+benign_roster_scheduling,benign,6,18
+cyber_infrastructure,risk,6,18
+finance_forecasting,risk,6,18
+governance_fairness,risk,6,18
+medical_biosafety,risk,6,18

@@ -1,0 +1,10 @@
+artifact_or_status,status,note
+Pre-run lock files,present,Freeze and preregistration docs are preserved in the repository.
+Raw requests and responses,present,Immutable request/response JSONL logs are available for this run.
+Final labels,present,Final adjudicated-or-final labels are preserved in final_labels.jsonl.
+Primary-stage labels,present,Used to document staged first-pass annotation when available.
+Adjudicated-stage labels,present,Used to document staged adjudication when available.
+Label import metadata,present,Import-time provenance sidecar for labels.
+Paired agreement audit,present,Agreement metrics require preserved primary and adjudicated stage artifacts.
+Evidence package,present,Byte-level inventory of the executed run artifacts.
+Evidence verification,ok,Verified byte-for-byte against a finalized dual-primary-plus-adjudication consensus package.
