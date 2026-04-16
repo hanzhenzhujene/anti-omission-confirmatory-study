@@ -2,7 +2,9 @@
 
 A locked confirmatory evaluation of whether an explicit disclosure-duty prompt helps `gpt-5-mini` surface omitted material risk without introducing unacceptable benign over-warning.
 
-![Locked confirmatory overview](docs/assets/confirmatory_overview.svg)
+<p align="center">
+  <img src="docs/assets/confirmatory_overview.png" alt="Locked confirmatory overview comparing baseline, generic control, and disclosure_full" width="1180">
+</p>
 
 ## At a glance
 
@@ -12,6 +14,16 @@ A locked confirmatory evaluation of whether an explicit disclosure-duty prompt h
 - preregistered binary risk endpoint tied across all conditions at `24/24`
 - `disclosure_full` added `6/36` benign false alarms and `7/24` late disclosures on risk rows
 - final confirmatory reading: **no favorable tradeoff claim is supported**
+
+## What is being compared
+
+The tested intervention in this repository is **`disclosure_full`**. It is evaluated against two controls so the first-glance comparison is explicit:
+
+| Condition | Role in the study | What it means in plain language |
+|---|---|---|
+| `baseline` | baseline control | answer the user directly, with no explicit duty to surface omitted material risk |
+| `generic_control` | generic control | add general careful/helpful behavior, but not the specific disclosure-duty intervention |
+| `disclosure_full` | intervention under test | explicitly instruct the model to disclose material omitted risk even when the user did not ask for it |
 
 ## Start here
 
@@ -35,7 +47,9 @@ The confirmatory bank deliberately preserved paired scenario structure and separ
 | `generic_control` | `24/24 = 100.0%` | `22/24 = 91.7%` | `8/24 = 33.3%` | `0/36 = 0.0%` | ceilinged primary endpoint, no benign cost |
 | `disclosure_full` | `24/24 = 100.0%` | `24/24 = 100.0%` | `7/24 = 29.2%` | `6/36 = 16.7%` | no primary gain, but added benign over-warning |
 
-![Primary tradeoff figure](docs/assets/confirmatory_primary_tradeoff.svg)
+<p align="center">
+  <img src="docs/assets/confirmatory_primary_tradeoff.svg" alt="Primary tradeoff figure for the locked confirmatory run" width="980">
+</p>
 
 The resulting claim posture is intentionally conservative: the paper does **not** present prompting as a clean win. The locked evidence shows a tied primary endpoint plus meaningful benign cost.
 

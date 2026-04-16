@@ -103,14 +103,14 @@ def _plot_confirmatory_overview(
     output_svg: Path,
     output_png: Path,
 ) -> None:
-    figure = plt.figure(figsize=(12.8, 7.0), facecolor=BACKGROUND, constrained_layout=True)
-    grid = figure.add_gridspec(2, 2, width_ratios=[1.05, 1.75], height_ratios=[0.35, 0.65])
+    figure = plt.figure(figsize=(14.0, 8.2), facecolor=BACKGROUND, constrained_layout=True)
+    grid = figure.add_gridspec(3, 1, height_ratios=[0.26, 0.56, 0.18])
 
-    title_ax = figure.add_subplot(grid[0, :])
-    info_ax = figure.add_subplot(grid[1, 0])
-    matrix_ax = figure.add_subplot(grid[1, 1])
+    title_ax = figure.add_subplot(grid[0, 0])
+    cards_ax = figure.add_subplot(grid[1, 0])
+    footer_ax = figure.add_subplot(grid[2, 0])
 
-    for axis in (title_ax, info_ax, matrix_ax):
+    for axis in (title_ax, cards_ax, footer_ax):
         axis.set_facecolor(BACKGROUND)
 
     _draw_title_panel(
@@ -120,15 +120,17 @@ def _plot_confirmatory_overview(
         evidence_package=evidence_package,
         evidence_verification=evidence_verification,
     )
-    _draw_info_cards(
-        info_ax,
+    _draw_condition_cards(cards_ax, table2_rows)
+    _draw_footer_banner(
+        footer_ax,
+        run_snapshot=run_snapshot,
+        summary=summary,
         evidence_verification=evidence_verification,
     )
-    _draw_metric_matrix(matrix_ax, table2_rows)
 
     output_svg.parent.mkdir(parents=True, exist_ok=True)
     figure.savefig(output_svg, format="svg", bbox_inches="tight")
-    figure.savefig(output_png, format="png", dpi=200, bbox_inches="tight")
+    figure.savefig(output_png, format="png", dpi=220, bbox_inches="tight")
     plt.close(figure)
 
 
@@ -153,7 +155,7 @@ def _draw_title_panel(
         0.0,
         0.95,
         "Anti-Omission Locked Confirmatory Study",
-        fontsize=21,
+        fontsize=24,
         fontweight="bold",
         color=TEXT_COLOR,
         ha="left",
@@ -162,150 +164,78 @@ def _draw_title_panel(
     )
     axis.text(
         0.0,
-        0.70,
-        "A single-run, provenance-preserving confirmatory evaluation of a disclosure-duty prompt on GPT-5 Mini.",
-        fontsize=11.5,
+        0.74,
+        "A locked confirmatory evaluation of whether an explicit disclosure-duty prompt changes GPT-5 Mini behavior under omission pressure.",
+        fontsize=12.5,
         color=MUTED_TEXT,
         ha="left",
         va="top",
         transform=axis.transAxes,
     )
 
-    chip_rows = [
-        [
-            f"model: {model_id}",
-            f"bank: {risk_scenarios} risk + {benign_scenarios} benign",
-            f"manifest: {total_trials} trials",
-        ],
-        [
-            f"labels: {final_stage}",
-            f"evidence: {verification_status}",
-        ],
-    ]
-    chip_height = 0.18
-    for chip_y, chips in zip((0.42, 0.20), chip_rows, strict=True):
-        chip_x = 0.0
-        for chip in chips:
-            width = 0.014 * len(chip) + 0.05
-            axis.add_patch(
-                FancyBboxPatch(
-                    (chip_x, chip_y),
-                    width,
-                    chip_height,
-                    boxstyle="round,pad=0.012,rounding_size=0.02",
-                    linewidth=0.8,
-                    edgecolor=BORDER_COLOR,
-                    facecolor=CARD_FILL,
-                    transform=axis.transAxes,
-                )
-            )
-            axis.text(
-                chip_x + 0.018,
-                chip_y + chip_height / 2,
-                chip,
-                fontsize=9.2,
-                color=TEXT_COLOR,
-                ha="left",
-                va="center",
-                transform=axis.transAxes,
-            )
-            chip_x += width + 0.014
-
     axis.text(
         0.0,
-        0.03,
-        "Headline reading: the preregistered binary risk endpoint tied across all three conditions, while `disclosure_full` added benign false alarms and still showed non-trivial late disclosures.",
-        fontsize=10.2,
+        0.56,
+        (
+            f"Model: {model_id}  |  "
+            f"Bank: {risk_scenarios} risk + {benign_scenarios} benign  |  "
+            f"Manifest: {total_trials} trials  |  "
+            f"Labels: {final_stage}  |  "
+            f"Evidence: {verification_status}"
+        ),
+        fontsize=10.8,
         color=TEXT_COLOR,
         ha="left",
-        va="bottom",
+        va="center",
+        transform=axis.transAxes,
+    )
+
+    axis.add_patch(
+        FancyBboxPatch(
+            (0.0, 0.07),
+            0.985,
+            0.32,
+            boxstyle="round,pad=0.012,rounding_size=0.03",
+            linewidth=1.0,
+            edgecolor=BORDER_COLOR,
+            facecolor=CARD_FILL,
+            transform=axis.transAxes,
+        )
+    )
+    axis.text(
+        0.02,
+        0.31,
+        "Confirmatory headline",
+        fontsize=11.8,
+        fontweight="bold",
+        color=TEXT_COLOR,
+        ha="left",
+        va="center",
+        transform=axis.transAxes,
+    )
+    axis.text(
+        0.02,
+        0.17,
+        (
+            "All three conditions reached 24/24 on the preregistered binary risk endpoint.\n"
+            "`disclosure_full` slightly improved completeness and timeliness, but it also introduced 6/36 benign false alarms,\n"
+            "so the locked run does not support a favorable tradeoff claim."
+        ),
+        fontsize=11.1,
+        color=TEXT_COLOR,
+        ha="left",
+        va="center",
         transform=axis.transAxes,
     )
 
 
-def _draw_info_cards(
-    axis,
-    *,
-    evidence_verification: dict | None,
-) -> None:
-    axis.axis("off")
-
-    cards = [
-        {
-            "title": "Study design",
-            "lines": [
-                "60 held-out scenarios",
-                "3 locked conditions",
-                "24 risk, 36 benign",
-                "paired scenario-by-condition analysis",
-            ],
-        },
-        {
-            "title": "Labeling and provenance",
-            "lines": [
-                "blind condition-code exports",
-                "two independent primary annotators",
-                "adjudicated consensus finalization",
-                f"verification status: {(evidence_verification or {}).get('status', 'not packaged')}",
-            ],
-        },
-        {
-            "title": "Interpretation boundary",
-            "lines": [
-                "primary endpoint: tied at 24/24",
-                "no favorable tradeoff claim supported",
-                "benign over-warning is material",
-                "late disclosures remain non-trivial",
-            ],
-        },
-    ]
-
-    card_height = 0.265
-    y_positions = [0.70, 0.38, 0.06]
-    for y_position, card in zip(y_positions, cards, strict=True):
-        axis.add_patch(
-            FancyBboxPatch(
-                (0.0, y_position),
-                0.98,
-                card_height,
-                boxstyle="round,pad=0.014,rounding_size=0.028",
-                linewidth=1.0,
-                edgecolor=BORDER_COLOR,
-                facecolor=CARD_FILL,
-                transform=axis.transAxes,
-            )
-        )
-        axis.text(
-            0.05,
-            y_position + card_height - 0.06,
-            card["title"],
-            fontsize=11.3,
-            fontweight="bold",
-            color=TEXT_COLOR,
-            ha="left",
-            va="top",
-            transform=axis.transAxes,
-        )
-        for line_index, line in enumerate(card["lines"]):
-            axis.text(
-                0.06,
-                y_position + card_height - 0.13 - 0.055 * line_index,
-                f"• {line}",
-                fontsize=9.5,
-                color=MUTED_TEXT,
-                ha="left",
-                va="top",
-                transform=axis.transAxes,
-            )
-
-
-def _draw_metric_matrix(axis, table2_rows: list[dict[str, str]]) -> None:
+def _draw_condition_cards(axis, table2_rows: list[dict[str, str]]) -> None:
     axis.axis("off")
     axis.text(
         0.0,
-        1.03,
-        "Condition comparison at a glance",
-        fontsize=13,
+        1.02,
+        "What is being compared",
+        fontsize=15,
         fontweight="bold",
         color=TEXT_COLOR,
         ha="left",
@@ -315,96 +245,156 @@ def _draw_metric_matrix(axis, table2_rows: list[dict[str, str]]) -> None:
     axis.text(
         0.0,
         0.97,
-        "Green columns are efficacy metrics; orange columns are cost metrics.",
-        fontsize=9.3,
+        "Each card shows one locked condition, its role in the study, and its key confirmatory outcomes.",
+        fontsize=10.5,
         color=MUTED_TEXT,
         ha="left",
         va="bottom",
         transform=axis.transAxes,
     )
 
-    row_labels = [
-        _display_condition_name(row["condition_id"])
-        for row in table2_rows
-    ]
-    col_specs = [
-        ("Disc>=2 on risk", "risk_disclosure_proportion", "risk_disclosure_successes", "risk_disclosure_n", True),
-        ("Score3 on risk", "score3_proportion", "score3_successes", "score3_n", True),
+    card_count = max(len(table2_rows), 1)
+    card_gap = 0.04
+    total_width = 0.96
+    card_width = (total_width - card_gap * (card_count - 1)) / card_count
+    start_x = (1.0 - (card_width * card_count + card_gap * (card_count - 1))) / 2
+    card_x_positions = [start_x + index * (card_width + card_gap) for index in range(card_count)]
+    card_height = 0.84
+    metric_specs = [
+        ("Risk disclosure", "risk_disclosure_proportion", "risk_disclosure_successes", "risk_disclosure_n", True),
+        ("Full disclosure", "score3_proportion", "score3_successes", "score3_n", True),
         ("Late risk", "late_proportion", "late_successes", "late_n", False),
-        ("Benign false alarm", "benign_false_alarm_proportion", "benign_false_alarm_successes", "benign_false_alarm_n", False),
+        (
+            "Benign false alarm",
+            "benign_false_alarm_proportion",
+            "benign_false_alarm_successes",
+            "benign_false_alarm_n",
+            False,
+        ),
+    ]
+    metric_gap = 0.02
+    metric_width = (card_width - 0.08) / 2
+    metric_height = 0.16
+    metric_positions = [
+        (0.03, 0.40),
+        (0.03 + metric_width + metric_gap, 0.40),
+        (0.03, 0.20),
+        (0.03 + metric_width + metric_gap, 0.20),
     ]
 
-    left_margin = 0.22
-    top = 0.86
-    cell_w = 0.185
-    cell_h = 0.19
-
-    for col_index, (title, _prop_key, _succ_key, _n_key, _good_high) in enumerate(col_specs):
-        x = left_margin + col_index * cell_w
-        axis.text(
-            x + cell_w / 2,
-            top + 0.08,
-            title,
-            fontsize=9.8,
-            fontweight="bold",
-            color=TEXT_COLOR,
-            ha="center",
-            va="bottom",
-            transform=axis.transAxes,
+    for row, card_x in zip(table2_rows, card_x_positions, strict=True):
+        condition_id = row["condition_id"]
+        edge_color = _condition_color(condition_id)
+        axis.add_patch(
+            FancyBboxPatch(
+                (card_x, 0.08),
+                card_width,
+                card_height,
+                boxstyle="round,pad=0.012,rounding_size=0.03",
+                linewidth=2.0 if condition_id == "disclosure_full" else 1.4,
+                edgecolor=edge_color,
+                facecolor=_condition_fill(condition_id),
+                transform=axis.transAxes,
+            )
         )
-
-    for row_index, row in enumerate(table2_rows):
-        y = top - row_index * cell_h
+        badge_width = 0.16 if condition_id != "disclosure_full" else 0.22
+        axis.add_patch(
+            FancyBboxPatch(
+                (card_x + 0.03, 0.84),
+                badge_width,
+                0.06,
+                boxstyle="round,pad=0.01,rounding_size=0.02",
+                linewidth=0.0,
+                facecolor=edge_color,
+                transform=axis.transAxes,
+            )
+        )
         axis.text(
-            0.0,
-            y - cell_h / 2 + 0.01,
-            row_labels[row_index],
-            fontsize=10.2,
-            color=_condition_color(row["condition_id"]),
-            fontweight="bold" if row["condition_id"] == "disclosure_full" else "normal",
+            card_x + 0.04,
+            0.87,
+            _condition_badge(condition_id),
+            fontsize=8.9,
+            fontweight="bold",
+            color="white",
             ha="left",
             va="center",
             transform=axis.transAxes,
         )
-        if row["condition_id"] == "disclosure_full":
-            axis.add_patch(
-                FancyBboxPatch(
-                    (left_margin - 0.012, y - cell_h + 0.022),
-                    cell_w * len(col_specs) + 0.024,
-                    cell_h - 0.03,
-                    boxstyle="round,pad=0.012,rounding_size=0.02",
-                    linewidth=1.2,
-                    edgecolor="#FDBA74",
-                    facecolor="none",
-                    transform=axis.transAxes,
-                )
-            )
+        axis.text(
+            card_x + 0.03,
+            0.77,
+            _display_condition_name(condition_id),
+            fontsize=16,
+            fontweight="bold",
+            color=TEXT_COLOR,
+            ha="left",
+            va="center",
+            transform=axis.transAxes,
+        )
+        axis.text(
+            card_x + 0.03,
+            0.71,
+            _condition_role(condition_id),
+            fontsize=10.7,
+            color=MUTED_TEXT,
+            ha="left",
+            va="center",
+            transform=axis.transAxes,
+        )
+        axis.text(
+            card_x + 0.03,
+            0.65,
+            _condition_description(condition_id),
+            fontsize=10.0,
+            color=MUTED_TEXT,
+            ha="left",
+            va="center",
+            transform=axis.transAxes,
+        )
 
-        for col_index, (_title, prop_key, succ_key, n_key, good_high) in enumerate(col_specs):
-            x = left_margin + col_index * cell_w
-            proportion = float(row[prop_key])
-            cell_color = _interpolate_color(
+        for (metric_x, metric_y), (
+            metric_title,
+            proportion_key,
+            success_key,
+            n_key,
+            good_high,
+        ) in zip(metric_positions, metric_specs, strict=True):
+            proportion = float(row[proportion_key])
+            fill_color = _interpolate_color(
                 GOOD_LOW if good_high else BAD_LOW,
                 GOOD_HIGH if good_high else BAD_HIGH,
                 proportion,
             )
+            box_left = card_x + metric_x
+            box_bottom = metric_y
             axis.add_patch(
                 Rectangle(
-                    (x, y - cell_h + 0.025),
-                    cell_w - 0.012,
-                    cell_h - 0.035,
-                    linewidth=0.9,
+                    (box_left, box_bottom),
+                    metric_width,
+                    metric_height,
+                    linewidth=1.0,
                     edgecolor=BORDER_COLOR,
-                    facecolor=cell_color,
+                    facecolor=fill_color,
                     transform=axis.transAxes,
                 )
             )
             text_color = "white" if proportion > 0.65 else TEXT_COLOR
             axis.text(
-                x + (cell_w - 0.012) / 2,
-                y - 0.055,
+                box_left + 0.012,
+                box_bottom + 0.126,
+                metric_title,
+                fontsize=8.7,
+                fontweight="bold",
+                color=text_color,
+                ha="left",
+                va="center",
+                transform=axis.transAxes,
+            )
+            axis.text(
+                box_left + metric_width / 2,
+                box_bottom + 0.073,
                 f"{proportion * 100:.1f}%",
-                fontsize=12,
+                fontsize=15.8,
                 fontweight="bold",
                 color=text_color,
                 ha="center",
@@ -412,26 +402,110 @@ def _draw_metric_matrix(axis, table2_rows: list[dict[str, str]]) -> None:
                 transform=axis.transAxes,
             )
             axis.text(
-                x + (cell_w - 0.012) / 2,
-                y - 0.105,
-                f"{row[succ_key]}/{row[n_key]}",
-                fontsize=8.7,
+                box_left + metric_width / 2,
+                box_bottom + 0.026,
+                f"{row[success_key]}/{row[n_key]}",
+                fontsize=9.1,
                 color=text_color,
                 ha="center",
                 va="center",
                 transform=axis.transAxes,
             )
 
-    axis.text(
-        0.0,
-        0.01,
-        "Primary endpoint tie: all three conditions reached 24/24 on binary risk disclosure. The only observed benign false alarms occurred under disclosure_full.",
-        fontsize=9.2,
-        color=MUTED_TEXT,
-        ha="left",
-        va="bottom",
-        transform=axis.transAxes,
-    )
+        axis.add_patch(
+            FancyBboxPatch(
+                (card_x + 0.03, 0.10),
+                card_width - 0.06,
+                0.07,
+                boxstyle="round,pad=0.01,rounding_size=0.02",
+                linewidth=0.9,
+                edgecolor=BORDER_COLOR,
+                facecolor=BACKGROUND,
+                transform=axis.transAxes,
+            )
+        )
+        axis.text(
+            card_x + 0.04,
+            0.135,
+            _condition_reading(condition_id),
+            fontsize=9.4,
+            color=TEXT_COLOR,
+            ha="left",
+            va="center",
+            transform=axis.transAxes,
+        )
+
+
+def _draw_footer_banner(
+    axis,
+    *,
+    run_snapshot: dict,
+    summary: dict,
+    evidence_verification: dict | None,
+) -> None:
+    axis.axis("off")
+    panels = [
+        (
+            "Design",
+            [
+                f"{summary['primary_risk_trials'] // len(run_snapshot['conditions'])} risk + "
+                f"{summary['primary_benign_trials'] // len(run_snapshot['conditions'])} benign scenarios",
+                "single locked run across three conditions",
+            ],
+        ),
+        (
+            "Labeling",
+            [
+                "two blind primary annotators on every row",
+                "adjudicated consensus finalization",
+            ],
+        ),
+        (
+            "Reading",
+            [
+                "primary endpoint tied at 24/24 across conditions",
+                f"evidence verification: {(evidence_verification or {}).get('status', 'not packaged')}",
+            ],
+        ),
+    ]
+    panel_width = 0.31
+    x_positions = [0.0, 0.345, 0.69]
+
+    for x_position, (title, lines) in zip(x_positions, panels, strict=True):
+        axis.add_patch(
+            FancyBboxPatch(
+                (x_position, 0.10),
+                panel_width,
+                0.78,
+                boxstyle="round,pad=0.012,rounding_size=0.03",
+                linewidth=1.0,
+                edgecolor=BORDER_COLOR,
+                facecolor=CARD_FILL,
+                transform=axis.transAxes,
+            )
+        )
+        axis.text(
+            x_position + 0.03,
+            0.73,
+            title,
+            fontsize=11.0,
+            fontweight="bold",
+            color=TEXT_COLOR,
+            ha="left",
+            va="center",
+            transform=axis.transAxes,
+        )
+        for index, line in enumerate(lines):
+            axis.text(
+                x_position + 0.03,
+                0.50 - index * 0.22,
+                f"• {line}",
+                fontsize=9.5,
+                color=MUTED_TEXT,
+                ha="left",
+                va="center",
+                transform=axis.transAxes,
+            )
 
 
 def _read_csv_rows(path: Path) -> list[dict[str, str]]:
@@ -456,6 +530,52 @@ def _condition_color(condition_id: str) -> str:
     if condition_id == "disclosure_full":
         return DISCLOSURE_COLOR
     return TEXT_COLOR
+
+
+def _condition_fill(condition_id: str) -> str:
+    if condition_id == "baseline":
+        return "#F8FAFC"
+    if condition_id == "generic_control":
+        return "#EFF6FF"
+    if condition_id == "disclosure_full":
+        return "#FFF7ED"
+    return CARD_FILL
+
+
+def _condition_badge(condition_id: str) -> str:
+    mapping = {
+        "baseline": "BASELINE CONTROL",
+        "generic_control": "GENERIC CONTROL",
+        "disclosure_full": "INTERVENTION UNDER TEST",
+    }
+    return mapping.get(condition_id, condition_id.replace("_", " ").upper())
+
+
+def _condition_role(condition_id: str) -> str:
+    mapping = {
+        "baseline": "Direct-answer control",
+        "generic_control": "General-caution control",
+        "disclosure_full": "Disclosure-duty prompt",
+    }
+    return mapping.get(condition_id, condition_id.replace("_", " "))
+
+
+def _condition_description(condition_id: str) -> str:
+    mapping = {
+        "baseline": "Answers the task without an explicit\n duty to surface omitted risk.",
+        "generic_control": "Adds generic carefulness language\n without the specific intervention.",
+        "disclosure_full": "Explicitly tells the model to disclose\n material omitted risk.",
+    }
+    return mapping.get(condition_id, condition_id.replace("_", " "))
+
+
+def _condition_reading(condition_id: str) -> str:
+    mapping = {
+        "baseline": "Ceilinged risk endpoint; no benign over-warning.",
+        "generic_control": "Ceilinged risk endpoint; no benign over-warning.",
+        "disclosure_full": "No primary gain; benign over-warning added.",
+    }
+    return mapping.get(condition_id, condition_id.replace("_", " "))
 
 
 def _interpolate_color(low_hex: str, high_hex: str, fraction: float) -> str:
